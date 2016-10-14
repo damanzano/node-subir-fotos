@@ -15,11 +15,17 @@ var imageRouter = requires("./routers/imageRouter");
 
 // Crear nuestra aplicación express y comenzar a configurarla
 var app = express();
-app.use(morgan('dev'));
+
+// Configurar sistema de logging y conversión de datos
+app.use(logger('dev'));
 app.use(bodyParser.json());
 
 // configurar donde iran nuestros archivos del front
 app.use(express.static(__dirname + '/public'));
+
+// Configurar donde carpeta temporarl donde se guardaran las imágenes
+app.use(express.bodyParser({uploadDir:'./uploads'}));
+
 
 // Encender el servidor y comenzar a escuchar solicitudes
 var hostname = 'localhost';
