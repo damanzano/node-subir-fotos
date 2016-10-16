@@ -22,12 +22,14 @@ module.exports = (function() {
 
 	.post(
 			function(req, res, next) {
-				console.log(req.files.file.name);
-				console.log(req.files.file.path);
-				console.log(req.files.file.type);
-				var file = __dirname + "/" + req.files.file.name;
-				res.end('Will add the dish: ' + req.body.name
-						+ ' with details: ' + req.body.description);
+				console.log(req.file.originalname);
+				console.log(req.file.filename);
+				console.log(req.file.path);
+				console.log(req.file.mimetype);
+				console.log(req.file.size);
+				var file = __dirname + "/" + req.file.name;
+				res.end('Will add the photo: '+req.file.name+" " + req.body.author
+						+ ' with details: ' + req.body.place);
 			})
 
 	return photoRouter;
