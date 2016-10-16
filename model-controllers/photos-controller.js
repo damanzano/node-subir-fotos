@@ -1,7 +1,7 @@
 /**
  * http://usejsdoc.org/
  */
-var db = require('../db.js')
+var db = require('../database.js')
 
 exports.create = function(author, place, photoPath, done) {
   var values = [userId, text, photoPath, new Date().toISOString()];
