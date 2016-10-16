@@ -4,6 +4,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var photosController = require('../model-controllers/photos-controller');
+var fs = require('fs');
 
 module.exports = (function() {
 	var photoRouter = express.Router();
@@ -27,9 +28,20 @@ module.exports = (function() {
 				console.log(req.file.path);
 				console.log(req.file.mimetype);
 				console.log(req.file.size);
-				var file = __dirname + "/" + req.file.name;
-				res.end('Will add the photo: '+req.file.name+" " + req.body.author
-						+ ' with details: ' + req.body.place);
+				
+				
+				// Guardar el archivo en la ubicacion final
+				var targetPath = './public/images/' + req.file.filename;
+				fs.rename(req.file.path, targetPath, function(err) {
+			        if (err) throw err;
+			        // Borrar el archivo temporal, para que el servidor no se llene			        
+			        fs.unlink(req.file.path, function() {
+			            if (err) throw err;
+			            res.write('Will add the photo: '+req.file.name+" " + req.body.author
+								+ ' with details: ' + req.body.place);
+			            res.end('File uploaded to: ' + targetPath + ' - ' + req.file.size + ' bytes');
+			        });
+			    });
 			})
 
 	return photoRouter;
