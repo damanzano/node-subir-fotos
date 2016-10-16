@@ -5,6 +5,16 @@
 <title>Sube una nueva foto</title>
 </head>
 <body>
+	<h1>Sube una nueva foto</h1>
+	<section id="upload-photo">
+		<form action="/photos" method="post" enctype="multipart/form-data">
+			<fieldset>
+				<input type="text" id="author" name="author" placeholder="Autor de la fotografía">
+				<input type="text" id="place" name="place" placeholder="Lugar donde se tomó">
+				<input type="file" id="photo" name="photo" placeholder="Selecciona un archivo">
+			</fieldset>
+		</form>
+	</section>
 
 </body>
 </html>
