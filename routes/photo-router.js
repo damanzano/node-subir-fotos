@@ -3,6 +3,7 @@
  */
 var express = require('express');
 var bodyParser = require('body-parser');
+var photosController = require('../model-controllers/photos-controller');
 
 module.exports = (function() {
 	var photoRouter = express.Router();
@@ -12,7 +13,11 @@ module.exports = (function() {
 	photoRouter.route('/')
 
 	.get(function(req, res, next) {
-		res.end('Will send all the photos to you!');
+		photosController.getAll(function(error, photos){
+			if(!error){
+				res.json(photos);
+			}
+		});
 	})
 
 	.post(
