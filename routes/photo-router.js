@@ -49,12 +49,7 @@ module.exports = (function() {
 							function(err, result) {
 								if (err)
 									throw err;
-								res.write('The photo: ' + req.file.name + " "
-										+ req.body.author + ' with details: '
-										+ req.body.place
-										+ " was added with id:" + result);
-								res.end('File uploaded to: ' + targetPath
-										+ ' - ' + req.file.size + ' bytes');
+								res.redirect('/');
 							});
 				});
 			});
