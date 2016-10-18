@@ -7,27 +7,30 @@
 <body>
 	<h1>Sube una nueva foto</h1>
 	<section id="upload-photo">
-		<form action="/photos" method="post" enctype="multipart/form-data">
-			<fieldset>
-				<input type="text" id="author" name="author" placeholder="Autor de la fotografía">
-				<input type="text" id="place" name="place" placeholder="Lugar donde se tomó">
-				<input type="file" id="photo" name="photo" placeholder="Selecciona un archivo">
-				<input type="submit" value="Enviar">
-			</fieldset>
+		<form id="upload-form" action="/photos" method="post"
+			enctype="multipart/form-data">
+
+			<input type="text" id="author" name="author"
+				placeholder="Autor de la fotografía"> <input type="text"
+				id="place" name="place" placeholder="Lugar donde se tomó"> <input
+				type="file" id="photo" name="photo"
+				placeholder="Selecciona un archivo"> <input type="submit"
+				value="Enviar">
+
 		</form>
 	</section>
-	
+
 	<!-- Cargar jquery desde el CDN  -->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js" 
-		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" 
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 		crossorigin="anonymous">
 	</script>
-	
+
 	<!-- Si el CDN falla por algún motivo usar la copia local -->
 	<script>
 		window.jQuery || document.write('<script src="../node_modules/jquery/jquery.min.js"><\/script>');
 	</script>
-	
+
 	<!-- Hacer los llamados los scripts locales -->
 	<script src="/js/new-photo.js" type="text/javascript"></script>
 </body>
