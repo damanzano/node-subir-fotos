@@ -49,7 +49,7 @@ module.exports = (function() {
 							function(err, result) {
 								if (err)
 									throw err;
-								res.redirect('/');
+								res.json(result);
 							});
 				});
 			});
