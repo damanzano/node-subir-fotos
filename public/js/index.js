@@ -14,15 +14,18 @@ $(document).ready(function(){
 			var gallery = $("#gallery");
 			var photos = $();
 			$.each(data, function(index, value){
-				var photo = $("<div>", {"class": "photo-card"});
-				var image = $("<img>", {"src":value.photo_path, "class":"card-image"});
-				var author = $("<span>"+value.author+"</span>", {"class":"card-author"});
-				var place = $("<span>"+value.place+"</span>", {"class":"card-place"});
+				var column = $("<div>", {"class": "col-sm-4"});
+				var photo = $("<div>", {"class": "photo-card panel panel-default"});
+				var image = $("<img>", {"src":value.photo_path, "class":"card-image img-responsive"});
+				var author = $("<span>"+value.author+"</span>").addClass("card-author lead clearfix");
+				var place = $("<span>"+value.place+"</span>").addClass("card-place");
+				
 				
 				photo.append(image);
 				photo.append(author);
 				photo.append(place);
-				gallery.append(photo);
+				column.append(photo)
+				gallery.append(column);
 			});
 		}
 	});
