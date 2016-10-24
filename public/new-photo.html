@@ -14,18 +14,33 @@
 <body>
 	<div class="container">
 		<h1>Sube una nueva foto</h1>
-		<section id="upload-photo">
-			<form id="upload-form" action="/photos" method="post"
-				enctype="multipart/form-data">
+		<section id="upload-photo row">
+			<div class="col-sm-8 col-md-offset-2">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form id="upload-form" action="/photos" method="post"
+							enctype="multipart/form-data">
+							<div class="form-group">
+								<label for="author">Autor</label> 
+								<input class="form-control" type="text" id="author"
+									name="author" placeholder="Autor de la fotografía">
+							</div>
+							<div class="form-group">
+								<label for="place">Lugar</label> 
+								<input class="form-control" type="text" id="place"
+									name="place" placeholder="Lugar donde se tomó">
+							</div>
+							<div class="form-group">
+								<label for="photo">Selecciona la fotografía</label> 
+								<input class="form-control" type="file" id="photo" name="photo"
+									placeholder="Selecciona un archivo">
+							</div>
+							<input class="btn btn-primary" type="submit" value="Enviar">
 
-				<input type="text" id="author" name="author"
-					placeholder="Autor de la fotografía"> <input type="text"
-					id="place" name="place" placeholder="Lugar donde se tomó">
-				<input type="file" id="photo" name="photo"
-					placeholder="Selecciona un archivo"> <input type="submit"
-					value="Enviar">
-
-			</form>
+						</form>
+					</div>
+				</div>
+			</div>
 		</section>
 	</div>
 
