@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width">
-<title>Mi Galería de Fotos</title>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<title>Mi Galería de Fotos</title>
+	<!-- 1. Load webcomponents-lite.min.js for polyfill support. -->
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js">
+    </script>
+ 
+	 <!-- Importar Polymer -->
+	 <link rel="import" href="/bower_components/polymer/polymer.html">
+	 
+	<!-- Importar elementos construidos previamente -->
+	<link rel="import" href="/bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+	<link rel="import" href="/bower_components/paper-card/paper-card.html">
+	 
+	 <!-- Importar el elemento propio que se va a utilizar -->
+	 <link rel="import" href="/components/photo-card.html">
+	 
+	<!-- Incluir en nuestros estilos los definidos por iron-flex -->
+	<style is="custom-style" include="iron-flex"></style>
+	
 </head>
-<body>
+<body >
 	<h1>Mi Galería de Fotos</h1>
+	<!-- <photo-card image="images/c8cec635926ea3c5e8685b4a770fedf5" author="Juan"></photo-card> -->
 	<a href="/new-photo.html" class="btn">Sube tu fotografía</a>
-	<section id="gallery"></section>
+	<section id="gallery" class="layout horizontal wrap justified"></section>
 	
 	<!-- Cargar jquery desde el CDN  -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" 

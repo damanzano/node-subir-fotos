@@ -14,14 +14,18 @@ $(document).ready(function(){
 			var gallery = $("#gallery");
 			var photos = $();
 			$.each(data, function(index, value){
-				var photo = $("<div>", {"class": "photo-card"});
-				var image = $("<img>", {"src":value.photo_path, "class":"card-image"});
-				var author = $("<span>"+value.author+"</span>", {"class":"card-author"});
-				var place = $("<span>"+value.place+"</span>", {"class":"card-place"});
+				var card
+				//var photo = $("<photo-card>", {"author": value.author, "place":value.place, "image":value.photo_path});
+				var photo = $("<paper-card>",  {"image":value.photo_path, "elevation":5 });
+				var cardContent = $("<card-content>", {"class":" layout vertical"});
+				//var image = $("<img>", {"src":value.photo_path, "class":"card-image"});
+				var author = $("<span>"+value.author+"</span>").addClass("card-author");
+				var place = $("<span>"+value.place+"</span>").addClass("card-place");
 				
-				photo.append(image);
-				photo.append(author);
-				photo.append(place);
+				//photo.append(image);
+				cardContent.append(author);
+				cardContent.append(place);
+				photo.append(cardContent)
 				gallery.append(photo);
 			});
 		}
