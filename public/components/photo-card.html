@@ -1,0 +1,51 @@
+<!--  Importar Polymer CDN -->
+<!--  
+<link rel="import"
+	href="https://polygit2.appspot.com/components/polymer/polymer.html">
+-->
+<!--  Importar Polymer local -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+ <!-- Importar elementos construidos previamente -->
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<!-- Definir el DOM para el elemento -->
+<dom-module id="photo-card">
+	 
+	 <!-- Incluir en nuestros estilos los definidos por iron-flex -->
+	 <style is="custom-style" include="iron-flex"></style>
+	 
+	<template>
+		<div class="photo-card vertical layout">
+			<img src$="[[image]]" alt="la imagen" class="card-image flex" />
+			<span class="card-author flex">[[author]]</span>
+			<span class="card-place flex">[[place]]</span>
+		</div>
+		<content></content>
+	</template>
+	<script>
+	  // registra un nuevo componente llamado photo-card
+	  Polymer({
+	    is: "photo-card",
+		// Define los atributos o propiedades de este componente
+		properties:{
+			image:{
+				type:String
+			},
+			author: {
+				type:String,
+				value:"David Manzano"
+			},
+			place:{
+				type:String,
+				value:"En algún lugar de un gran país"
+			}
+		},
+	    // add a callback to the element's prototype
+	    ready: function() {
+	     
+	    }
+	  });
+	</script> 
+</dom-module>
+
