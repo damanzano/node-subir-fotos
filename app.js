@@ -58,7 +58,7 @@ databse.connect(databse.MODE_PRODUCTION, function(err) {
 		//var port = 3000;
 
 		app.listen(app.get('port'), function() {
-			console.log('Servidor corriendo en http://' + hostname + ':' + app.get('port')
+			console.log('Servidor corriendo en' + app.get('port')
 					+ '/');
 		});
 	}
