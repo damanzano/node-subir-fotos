@@ -9,6 +9,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+var cors = require('cors');
 
 // Importar módulos locales
 var databse = require("./database");
@@ -28,6 +29,9 @@ app.use(bodyParser.urlencoded({
 	extended : false
 }));
 
+//Aceptar solicitudes desde otros dominios
+app.use(cors());
+
 // configurar donde iran nuestros archivos del front
 app.use(express.static(__dirname + '/public'));
 
@@ -39,6 +43,8 @@ app.use(multer({
 // Configurar las rutas en archivos separados
 app.use('/photos', photoRouter);
 
+app.set('port', (process.env.PORT || 3000));
+
 // Configurar la conexión a la base de datos
 databse.connect(databse.MODE_PRODUCTION, function(err) {
 	if (err) {
@@ -48,11 +54,11 @@ databse.connect(databse.MODE_PRODUCTION, function(err) {
 	} else {
 		// Si no hubo errores encender el servidor y comenzar a escuchar
 		// solicitudes
-		var hostname = 'localhost';
-		var port = 3000;
+		//var hostname = 'localhost';
+		//var port = 3000;
 
-		app.listen(port, hostname, function() {
-			console.log('Servidor corriendo en http://' + hostname + ':' + port
+		app.listen(app.get('port'), function() {
+			console.log('Servidor corriendo en http://' + hostname + ':' + app.get('port')
 					+ '/');
 		});
 	}
